@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+      <style>
+        body {
+            background-color: #EE6363; /* Replace with your desired background color */
+        }
+    </style>
+      <style>
+    .form-container {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .form-container h2 {
+        text-align: center;
+    }
+
+
+    .form-container label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-container input[type="text"],
+    .form-container select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    .form-container input[type="radio"],
+    .form-container input[type="checkbox"] {
+        margin-right: 5px;
+    }
+
+    .form-container button[type="submit"] {
+        background-color: #CD5555;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .form-container button[type="submit"]:hover {
+        background-color: #CD5555;
+    }
+</style>
+  </head>
+  <body>
+  <div class="form-container ">
+    <h2>大学生心理健康预测</h2>
+
+    <form action="http://127.0.0.1:5000/" method="post">
+        <div>
+            <label for="sex">性别:</label>
+            <input type="radio" name="sex" value="0" checked>女
+            <input type="radio" name="sex" value="1">男
+        </div>
+
+        <div>
+            <label for="nationality">民族:</label>
+            <input type="radio" name="nationality" value="4" checked>汉族
+            <input type="radio" name="nationality" value="5">壮族
+            <input type="radio" name="nationality" value="6">回族
+            <input type="radio" name="nationality" value="7">满族
+            <input type="radio" name="nationality" value="8">维吾尔族
+            <input type="radio" name="nationality" value="9">苗族
+        </div>
+
+        <div>
+            <label for="stage">年级:</label>
+            <input type="radio" name="stage" value="0" checked>大一
+            <input type="radio" name="stage" value="1">大二
+            <input type="radio" name="stage" value="2">大三
+        </div>
+
+        <div>
+            <label for="relationship">人际关系:</label>
+            <input type="radio" name="relationship" value="1" checked>好
+            <input type="radio" name="relationship" value="0">不好
+        </div>
+
+        <div>
+            <label for="press">恋爱压力:</label>
+            <input type="radio" name="press" value="1" checked>有
+            <input type="radio" name="press" value="0">无
+        </div>
+
+        <div>
+            <label for="addiction">网络成瘾:</label>
+            <input type="radio" name="addiction" value="1" checked>有
+            <input type="radio" name="addiction" value="0">无
+        </div>
+
+        <div>
+            <label for="injury">自伤行为:</label>
+            <input type="radio" name="injury" value="1" checked>有
+            <input type="radio" name="injury" value="0">无
+        </div>
+
+        <div>
+            <label for="sleep">睡眠问题:</label>
+            <input type="radio" name="sleep" value="1" checked>有
+            <input type="radio" name="sleep" value="0">无
+        </div>
+
+        <div>
+            <label for="nnn">请选择你的地区:</label>
+            <select name="nnn" id="sid" onchange="selectcity()">
+                <option>---请选择---</option>
+                <option value="101">广东</option>
+                <option value="102">山东</option>
+                <option value="103">河南</option>
+                <option value="104">四川</option>
+                <option value="105">江苏</option>
+                <option value="106">河北</option>
+                <option value="107">湖南</option>
+                <option value="108">安徽</option>
+                <option value="109">湖北</option>
+                <option value="110">浙江</option>
+                <option value="111">云南</option>
+                <option value="112">江西</option>
+                <option value="113">辽宁</option>
+                <option value="114">福建</option>
+                <option value="115">陕西</option>
+                <option value="116">黑龙江</option>
+                <option value="117">山西</option>
+                <option value="118">贵州</option>
+                <option value="119">吉林</option>
+                <option value="120">甘肃</option>
+                <option value="121">台湾</option>
+                <option value="122">海南</option>
+                <option value="123">青海</option>
+                <option value="201">重庆市</option>
+                <option value="202">上海市</option>
+                <option value="203">北京市</option>
+                <option value="204">天津市</option>
+                <option value="301">香港</option>
+                <option value="302">澳门</option>
+                <option value="401">广西自治区</option>
+                <option value="402">内蒙古自治区</option>
+                <option value="403">新疆自治区</option>
+                <option value="404">宁夏古自治区</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="input_data5">请输入你的适应性:</label>
+            <input type="text" id="input_data5" name="input_data5" placeholder="1~5 (越高越好)" required>
+        </div>
+
+        <div>
+            <label for="input_data7">请输入你的学习进展:</label>
+            <input type="text" id="input_data7" name="input_data7" placeholder="1~10 (越高进展越多)" required>
+        </div>
+
+        <div>
+            <label for="input_data9">请输入你的依赖性:</label>
+            <input type="text" id="input_data9" name="input_data9" placeholder="0~100 (越高依赖性越强)" required>
+        </div>
+
+        <div>
+            <label for="input_data10">请输入你的敌对攻击:</label>
+            <input type="text" id="input_data10" name="input_data10" placeholder="0~100 (越高敌对攻击越少)" required>
+        </div>
+
+        <div>
+            <label for="input_data11">请输入你的冲动:</label>
+            <input type="text" id="input_data11" name="input_data11" placeholder="0~100 (越高越易冲动)" required>
+        </div>
+
+        <div>
+            <label for="input_data14">请输入你的饭卡日消费:</label>
+            <input type="text" id="input_data14" name="input_data14" placeholder="消费金额" required>
+        </div>
+
+        <button type="submit">Predict</button>
+    </form>
+</div>
+
+
+  </body>
+</html>

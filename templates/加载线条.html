@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>模型正在训练 - 加载线条示例</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f1f1f1;
+    }
+
+    .progress-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .progress-bar {
+      width: 400px;
+      height: 20px;
+      background-color: #f1f1f1;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress {
+      width: 0;
+      height: 100%;
+      background-color: #4caf50;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-container">
+    <h1>模型正在训练，请稍候...</h1>
+
+    <div class="progress-bar">
+      <div class="progress"></div>
+    </div>
+  </div>
+
+  <script>
+    // 假设有一个加载资源的函数
+    function loadResources(callback) {
+      // 模拟加载资源过程
+      setTimeout(callback, 2000);
+    }
+
+    // 获取进度条元素
+    const progressBar = document.querySelector('.progress');
+
+    // 调用加载资源函数
+    loadResources(function() {
+      // 加载完成后将进度条宽度设置为100%
+      progressBar.style.width = '100%';
+
+      // 在进度条达到100%时跳转到另一个网页
+      setTimeout(function() {
+        window.location.href = 'http://127.0.0.1:8000/xz'; // 替换为你想要跳转的网页地址
+      }, 500);
+    });
+  </script>
+</body>
+</html>
